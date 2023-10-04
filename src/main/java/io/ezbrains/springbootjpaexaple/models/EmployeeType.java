@@ -1,4 +1,4 @@
-package io.ezbrains.springbootjpaexaple;
+package io.ezbrains.springbootjpaexaple.models;
 
 public enum EmployeeType {
     PAYROLL_EXEMPT,

@@ -1,11 +1,14 @@
 package io.ezbrains.springbootjpaexaple;
 
+import io.ezbrains.springbootjpaexaple.models.Employee;
+import io.ezbrains.springbootjpaexaple.repository.EmployeeRepository;
 import jakarta.annotation.PostConstruct;
 import jakarta.persistence.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.util.Date;
+import java.util.Optional;
 
 @SpringBootApplication
 public class SpringbootjpaexapleApplication {
@@ -13,8 +16,11 @@ public class SpringbootjpaexapleApplication {
 //	@PersistenceUnit
 //	private EntityManagerFactory emf;
 
-	@PersistenceContext
-	private EntityManager entityManager;
+//	@PersistenceContext
+//	private EntityManager entityManager;
+
+	@Autowired
+	EmployeeRepository employeeRepository;
 
 
 	public static void main(String[] args) {
@@ -36,8 +42,11 @@ public class SpringbootjpaexapleApplication {
 //		entityManager.close();
 
 
-		Employee employee = entityManager.find(Employee.class,1);
-		System.out.println(employee);
+		Optional<Employee> employee = employeeRepository.findById(1);  // may or may not exist
+		if(employee.isPresent()) {
+			System.out.println(employee.get());
+		}
+
 	}
 
 }

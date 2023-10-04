@@ -1,4 +1,4 @@
-package io.ezbrains.springbootjpaexaple;
+package io.ezbrains.springbootjpaexaple.models;
 
 import jakarta.persistence.*;
 import java.util.Date;
@@ -13,7 +13,7 @@ public class AccessCard {
     private boolean isActive;
     private String firmwareVersion;
     @OneToOne(mappedBy = "card")
-    private  Employee owner;
+    private Employee owner;
 
     public int getId() {
         return id;

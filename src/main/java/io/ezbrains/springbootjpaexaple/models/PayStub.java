@@ -1,5 +1,6 @@
-package io.ezbrains.springbootjpaexaple;
+package io.ezbrains.springbootjpaexaple.models;
 
+import io.ezbrains.springbootjpaexaple.models.Employee;
 import jakarta.persistence.*;
 import java.util.Date;
 
