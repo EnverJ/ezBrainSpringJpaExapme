@@ -45,7 +45,14 @@ public class SpringbootjpaexapleApplication {
 		Optional<Employee> employee = employeeRepository.findById(1);  // may or may not exist
 		if(employee.isPresent()) {
 			System.out.println(employee.get());
+			updateEmployee(employee.get());
 		}
+
+	}
+
+	private void updateEmployee(Employee employee) {
+		employee.setName("updated name");
+		employeeRepository.save(employee);
 
 	}
 
